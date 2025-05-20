@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "privacy_items",
+  "info": {
+    "singularName": "privacy-item",
+    "pluralName": "privacy-items",
+    "displayName": "PrivacyItem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "bulletList": {
+      "type": "json"
+    }
+  }
+}

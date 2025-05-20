@@ -556,6 +556,37 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPrivacyItemPrivacyItem extends Struct.CollectionTypeSchema {
+  collectionName: 'privacy_items';
+  info: {
+    description: '';
+    displayName: 'PrivacyItem';
+    pluralName: 'privacy-items';
+    singularName: 'privacy-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bulletList: Schema.Attribute.JSON;
+    content: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-item.privacy-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSemanaESemanaE extends Struct.CollectionTypeSchema {
   collectionName: 'semana_es';
   info: {
@@ -1135,6 +1166,7 @@ declare module '@strapi/strapi' {
       'api::faq-page.faq-page': ApiFaqPageFaqPage;
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
+      'api::privacy-item.privacy-item': ApiPrivacyItemPrivacyItem;
       'api::semana-e.semana-e': ApiSemanaESemanaE;
       'api::workout-category.workout-category': ApiWorkoutCategoryWorkoutCategory;
       'plugin::content-releases.release': PluginContentReleasesRelease;
