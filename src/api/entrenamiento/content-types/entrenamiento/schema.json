@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "entrenamientos",
+  "info": {
+    "singularName": "entrenamiento",
+    "pluralName": "entrenamientos",
+    "displayName": "Entrenamiento",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "semanas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::semana-e.semana-e"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::workout-category.workout-category",
+      "mappedBy": "entrenamientos"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "marketingFeatures": {
+      "type": "json"
+    },
+    "includesList": {
+      "type": "json"
+    }
+  }
+}

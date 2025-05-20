@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dia_es",
+  "info": {
+    "singularName": "dia-e",
+    "pluralName": "dia-es",
+    "displayName": "DiaE"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dia": {
+      "type": "string",
+      "required": true
+    },
+    "grupoMuscular": {
+      "type": "string",
+      "required": true
+    },
+    "ejercicios": {
+      "type": "json",
+      "required": false
+    }
+  }
+}

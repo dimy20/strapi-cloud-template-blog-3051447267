@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workout_categories",
+  "info": {
+    "singularName": "workout-category",
+    "pluralName": "workout-categories",
+    "displayName": "WorkoutCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "entrenamientos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::entrenamiento.entrenamiento",
+      "inversedBy": "category"
+    }
+  }
+}
