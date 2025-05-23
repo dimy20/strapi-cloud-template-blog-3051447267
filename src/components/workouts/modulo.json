@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_workouts_modulos",
+  "info": {
+    "displayName": "Modulo",
+    "icon": "stack",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "blocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.content-block"
+    }
+  }
+}

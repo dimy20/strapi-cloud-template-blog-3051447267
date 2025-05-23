@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_shared_content_blocks",
+  "info": {
+    "displayName": "content-block",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "table",
+        "images",
+        "video",
+        "pdf"
+      ]
+    },
+    "textContent": {
+      "type": "richtext"
+    },
+    "tableData": {
+      "type": "json"
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "imagesUrl": {
+      "type": "json"
+    },
+    "pdfUrl": {
+      "type": "string"
+    }
+  }
+}

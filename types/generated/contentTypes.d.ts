@@ -454,6 +454,7 @@ export interface ApiEntrenamientoEntrenamiento
     > &
       Schema.Attribute.Private;
     marketingFeatures: Schema.Attribute.JSON;
+    modulos: Schema.Attribute.Component<'workouts.modulo', true>;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     semanas: Schema.Attribute.Relation<'oneToMany', 'api::semana-e.semana-e'>;

@@ -1,5 +1,26 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedContentBlock extends Struct.ComponentSchema {
+  collectionName: 'components_shared_content_blocks';
+  info: {
+    description: '';
+    displayName: 'content-block';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    imagesUrl: Schema.Attribute.JSON;
+    pdfUrl: Schema.Attribute.String;
+    tableData: Schema.Attribute.JSON;
+    textContent: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['text', 'table', 'images', 'video', 'pdf']
+    >;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -62,14 +83,30 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface WorkoutsModulo extends Struct.ComponentSchema {
+  collectionName: 'components_workouts_modulos';
+  info: {
+    description: '';
+    displayName: 'Modulo';
+    icon: 'stack';
+  };
+  attributes: {
+    blocks: Schema.Attribute.Component<'shared.content-block', true>;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.content-block': SharedContentBlock;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'workouts.modulo': WorkoutsModulo;
     }
   }
 }

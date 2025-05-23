@@ -37,6 +37,11 @@
     },
     "includesList": {
       "type": "json"
+    },
+    "modulos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "workouts.modulo"
     }
   }
 }
