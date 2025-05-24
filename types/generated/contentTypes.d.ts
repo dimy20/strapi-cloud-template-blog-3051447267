@@ -398,33 +398,6 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiDiaEDiaE extends Struct.CollectionTypeSchema {
-  collectionName: 'dia_es';
-  info: {
-    displayName: 'DiaE';
-    pluralName: 'dia-es';
-    singularName: 'dia-e';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    dia: Schema.Attribute.String & Schema.Attribute.Required;
-    ejercicios: Schema.Attribute.JSON;
-    grupoMuscular: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::dia-e.dia-e'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiEntrenamientoEntrenamiento
   extends Struct.CollectionTypeSchema {
   collectionName: 'entrenamientos';
@@ -457,7 +430,6 @@ export interface ApiEntrenamientoEntrenamiento
     modulos: Schema.Attribute.Component<'workouts.modulo', true>;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    semanas: Schema.Attribute.Relation<'oneToMany', 'api::semana-e.semana-e'>;
     shortDescription: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -582,36 +554,6 @@ export interface ApiPrivacyItemPrivacyItem extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSemanaESemanaE extends Struct.CollectionTypeSchema {
-  collectionName: 'semana_es';
-  info: {
-    description: '';
-    displayName: 'SemanaE';
-    pluralName: 'semana-es';
-    singularName: 'semana-e';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    dias: Schema.Attribute.Relation<'oneToMany', 'api::dia-e.dia-e'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::semana-e.semana-e'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1162,13 +1104,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
-      'api::dia-e.dia-e': ApiDiaEDiaE;
       'api::entrenamiento.entrenamiento': ApiEntrenamientoEntrenamiento;
       'api::faq-page.faq-page': ApiFaqPageFaqPage;
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::privacy-item.privacy-item': ApiPrivacyItemPrivacyItem;
-      'api::semana-e.semana-e': ApiSemanaESemanaE;
       'api::workout-category.workout-category': ApiWorkoutCategoryWorkoutCategory;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

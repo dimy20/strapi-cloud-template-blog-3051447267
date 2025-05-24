@@ -14,11 +14,6 @@
     "name": {
       "type": "string"
     },
-    "semanas": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::semana-e.semana-e"
-    },
     "description": {
       "type": "text",
       "required": true
