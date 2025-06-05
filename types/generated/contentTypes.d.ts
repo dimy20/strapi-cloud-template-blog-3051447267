@@ -429,6 +429,7 @@ export interface ApiEntrenamientoEntrenamiento
     marketingFeatures: Schema.Attribute.JSON;
     modulos: Schema.Attribute.Component<'workouts.modulo', true>;
     name: Schema.Attribute.String;
+    price: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-24T16:55:14.795Z"
+    "x-generation-date": "2025-06-05T17:43:56.938Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -5134,6 +5134,9 @@
                   "$ref": "#/components/schemas/WorkoutsModuloComponent"
                 }
               },
+              "price": {
+                "type": "string"
+              },
               "locale": {
                 "type": "string"
               },
@@ -5263,6 +5266,9 @@
                         "items": {
                           "$ref": "#/components/schemas/WorkoutsModuloComponent"
                         }
+                      },
+                      "price": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -5634,6 +5640,9 @@
             "items": {
               "$ref": "#/components/schemas/WorkoutsModuloComponent"
             }
+          },
+          "price": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -8809,6 +8818,9 @@
                   "items": {
                     "$ref": "#/components/schemas/WorkoutsModuloComponent"
                   }
+                },
+                "price": {
+                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",
