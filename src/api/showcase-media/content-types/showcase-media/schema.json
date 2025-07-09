@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "showcase_medias",
+  "info": {
+    "singularName": "showcase-media",
+    "pluralName": "showcase-medias",
+    "displayName": "ShowcaseMedia",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "src": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "athleteName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "competition",
+        "training",
+        "workout"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "image",
+        "video"
+      ]
+    }
+  }
+}

@@ -1,5 +1,13 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedCategory extends Struct.ComponentSchema {
+  collectionName: 'components_shared_categories';
+  info: {
+    displayName: 'category';
+  };
+  attributes: {};
+}
+
 export interface SharedContentBlock extends Struct.ComponentSchema {
   collectionName: 'components_shared_content_blocks';
   info: {
@@ -100,6 +108,7 @@ export interface WorkoutsModulo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.category': SharedCategory;
       'shared.content-block': SharedContentBlock;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

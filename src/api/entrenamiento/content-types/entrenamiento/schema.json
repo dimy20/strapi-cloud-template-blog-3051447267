@@ -40,6 +40,11 @@
     },
     "price": {
       "type": "string"
+    },
+    "muscleGroups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workout-tag.workout-tag"
     }
   }
 }

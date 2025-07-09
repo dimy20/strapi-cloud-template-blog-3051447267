@@ -428,6 +428,10 @@ export interface ApiEntrenamientoEntrenamiento
       Schema.Attribute.Private;
     marketingFeatures: Schema.Attribute.JSON;
     modulos: Schema.Attribute.Component<'workouts.modulo', true>;
+    muscleGroups: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workout-tag.workout-tag'
+    >;
     name: Schema.Attribute.String;
     price: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -561,6 +565,43 @@ export interface ApiPrivacyItemPrivacyItem extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiShowcaseMediaShowcaseMedia
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'showcase_medias';
+  info: {
+    description: '';
+    displayName: 'ShowcaseMedia';
+    pluralName: 'showcase-medias';
+    singularName: 'showcase-media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    athleteName: Schema.Attribute.String;
+    category: Schema.Attribute.Enumeration<
+      ['competition', 'training', 'workout']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::showcase-media.showcase-media'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    src: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['image', 'video']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWorkoutCategoryWorkoutCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'workout_categories';
@@ -585,6 +626,35 @@ export interface ApiWorkoutCategoryWorkoutCategory
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::workout-category.workout-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWorkoutTagWorkoutTag extends Struct.CollectionTypeSchema {
+  collectionName: 'workout_tags';
+  info: {
+    description: '';
+    displayName: 'MuscleGroupTag';
+    pluralName: 'workout-tags';
+    singularName: 'workout-tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workout-tag.workout-tag'
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
@@ -1110,7 +1180,9 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::privacy-item.privacy-item': ApiPrivacyItemPrivacyItem;
+      'api::showcase-media.showcase-media': ApiShowcaseMediaShowcaseMedia;
       'api::workout-category.workout-category': ApiWorkoutCategoryWorkoutCategory;
+      'api::workout-tag.workout-tag': ApiWorkoutTagWorkoutTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
