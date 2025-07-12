@@ -534,6 +534,37 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiMotivationalVideoSectionMotivationalVideoSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'motivational_video_sections';
+  info: {
+    displayName: 'MotivationalVideoSection';
+    pluralName: 'motivational-video-sections';
+    singularName: 'motivational-video-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::motivational-video-section.motivational-video-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
 export interface ApiPrivacyItemPrivacyItem extends Struct.CollectionTypeSchema {
   collectionName: 'privacy_items';
   info: {
@@ -1179,6 +1210,7 @@ declare module '@strapi/strapi' {
       'api::faq-page.faq-page': ApiFaqPageFaqPage;
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
+      'api::motivational-video-section.motivational-video-section': ApiMotivationalVideoSectionMotivationalVideoSection;
       'api::privacy-item.privacy-item': ApiPrivacyItemPrivacyItem;
       'api::showcase-media.showcase-media': ApiShowcaseMediaShowcaseMedia;
       'api::workout-category.workout-category': ApiWorkoutCategoryWorkoutCategory;

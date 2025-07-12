@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "motivational_video_sections",
+  "info": {
+    "singularName": "motivational-video-section",
+    "pluralName": "motivational-video-sections",
+    "displayName": "MotivationalVideoSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "videoUrl": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
