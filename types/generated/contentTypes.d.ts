@@ -435,6 +435,7 @@ export interface ApiEntrenamientoEntrenamiento
     name: Schema.Attribute.String;
     price: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    refersTo: Schema.Attribute.String;
     shortDescription: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

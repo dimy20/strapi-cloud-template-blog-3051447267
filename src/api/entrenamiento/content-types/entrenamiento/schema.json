@@ -45,6 +45,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::workout-tag.workout-tag"
+    },
+    "refersTo": {
+      "type": "string"
     }
   }
 }
