@@ -634,6 +634,34 @@ export interface ApiShowcaseMediaShowcaseMedia
   };
 }
 
+export interface ApiVocabularyVocabulary extends Struct.SingleTypeSchema {
+  collectionName: 'vocabularies';
+  info: {
+    displayName: 'vocabulary';
+    pluralName: 'vocabularies';
+    singularName: 'vocabulary';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vocabulary.vocabulary'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWorkoutCategoryWorkoutCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'workout_categories';
@@ -1214,6 +1242,7 @@ declare module '@strapi/strapi' {
       'api::motivational-video-section.motivational-video-section': ApiMotivationalVideoSectionMotivationalVideoSection;
       'api::privacy-item.privacy-item': ApiPrivacyItemPrivacyItem;
       'api::showcase-media.showcase-media': ApiShowcaseMediaShowcaseMedia;
+      'api::vocabulary.vocabulary': ApiVocabularyVocabulary;
       'api::workout-category.workout-category': ApiWorkoutCategoryWorkoutCategory;
       'api::workout-tag.workout-tag': ApiWorkoutTagWorkoutTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
